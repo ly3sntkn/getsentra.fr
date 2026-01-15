@@ -351,10 +351,24 @@ img {
 }
 
 .solution-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+}
+
+.solution-text {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.solution-text .check-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
+    gap: 20px;
+    text-align: left;
+    margin-top: 32px;
 }
 
 .check-list li {
