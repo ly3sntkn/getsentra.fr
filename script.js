@@ -88,14 +88,14 @@ function startDashboardAnimation(element) {
     // Animate Gauge
     const circle = element.querySelector('.circle');
     const scoreValue = element.querySelector('.score-value');
-    const scoreStatus = element.querySelector('.score-status');
-    const errorCount = element.querySelector('.error-count');
+    const scoreStatus = element.querySelector('.score-text'); /* Updated relative to html */
+    const errorTag = element.querySelector('.tag-red'); /* Updated relative to html */
 
     // Reset state
     if (circle) circle.style.strokeDasharray = "0, 100";
     if (scoreValue) scoreValue.textContent = "0";
     if (scoreStatus) scoreStatus.textContent = "ANALYSE...";
-    if (errorCount) errorCount.textContent = "-- erreurs";
+    if (errorTag) errorTag.textContent = "--";
 
     // Sequence
     setTimeout(() => {
@@ -106,10 +106,10 @@ function startDashboardAnimation(element) {
         // 2. Update Status
         setTimeout(() => {
             if (scoreStatus) {
-                scoreStatus.textContent = "COMPLÉTÉ";
-                scoreStatus.style.color = "var(--primary)";
+                scoreStatus.textContent = "MOYEN";
+                scoreStatus.style.color = "#64748b";
             }
-            if (errorCount) errorCount.textContent = "2 erreurs détectées";
+            if (errorTag) errorTag.textContent = "52 ERREURS >";
         }, 1500);
 
         // 3. Highlight Errors
