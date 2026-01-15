@@ -593,17 +593,36 @@ img {
     font-weight: bold;
 }
 
-/* Dashboard Mockup - Live Preview */
-.solution-visual {
-    position: relative;
-    /* height: 500px; Remove fixed height to let content dictate */
-    height: auto;
-    min-height: 480px;
-    background: transparent;
-    border-radius: var(--radius-lg);
-    box-shadow: none;
-    display: block;
-    padding: 0;
+/* Toolbar Styling for Compact View */
+.doc-toolbar {
+    width: 100%;
+    height: 48px;
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+}
+
+.dots {
+    display: flex;
+    gap: 6px;
+}
+
+.doc-title {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* Dashboard Mockup - Live Preview (Duplicate Cleanup) */
+min-height: 480px;
+background: transparent;
+border-radius: var(--radius-lg);
+box-shadow: none;
+display: block;
+padding: 0;
 }
 
 .dashboard-mockup {
