@@ -1151,3 +1151,25 @@ footer {
         gap: 30px;
     }
 }
+
+/* Wave Separator */
+.wave-separator {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    margin-top: -1px;
+    /* Avoid white line */
+}
+
+.wave-separator svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 80px;
+}
+
+.wave-separator .shape-fill {
+    fill: var(--primary);
+}
