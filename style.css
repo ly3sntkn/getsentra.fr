@@ -665,13 +665,7 @@ img {
 }
 
 /* Dashboard Mockup - Live Preview (Duplicate Cleanup) */
-min-height: 480px;
-background: transparent;
-border-radius: var(--radius-lg);
-box-shadow: none;
-display: block;
-padding: 0;
-}
+/* Cleaned up orphan styles */
 
 .dashboard-mockup {
     display: grid;
