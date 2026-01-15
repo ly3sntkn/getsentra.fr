@@ -365,13 +365,61 @@ img {
     margin: 0 auto;
 }
 
-.solution-text .check-list {
+/* Preview Section */
+.preview-layout {
+    align-items: center;
+    gap: 60px;
+}
+
+.preview-visual .dashboard-preview {
+    padding: 0;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.1);
+}
+
+.preview-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.preview-content {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.check-list.vertical {
+    display: flex;
+    flex-direction: column;
     gap: 32px;
-    text-align: left;
-    margin-top: 40px;
+}
+
+.check-list.vertical li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    max-width: 100%;
+}
+
+.check-list.vertical li p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+    line-height: 1.5;
+}
+
+.icon-box-sm {
+    width: 40px;
+    height: 40px;
+    background: #eff6ff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
 }
 
 /* Dashboard Mockup - Live Preview */
