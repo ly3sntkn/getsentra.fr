@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // Sticky Navigation
     const navbar = document.querySelector('.navbar');
-    
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
@@ -61,3 +61,91 @@ styleSheet.textContent = `
     }
 `;
 document.head.appendChild(styleSheet);
+
+// Dashboard Preview Animation
+const dashboardObserverOptions = {
+    threshold: 0.5
+};
+
+const dashboardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            startDashboardAnimation(entry.target);
+        } else {
+            resetDashboardAnimation(entry.target);
+        }
+    });
+}, dashboardObserverOptions);
+
+const dashboardMockup = document.querySelector('.dashboard-mockup');
+if (dashboardMockup) {
+    dashboardObserver.observe(dashboardMockup);
+}
+
+function startDashboardAnimation(element) {
+    element.classList.add('active');
+
+    // Animate Gauge
+    const circle = element.querySelector('.circle');
+    const scoreValue = element.querySelector('.score-value');
+    const scoreStatus = element.querySelector('.score-status');
+    const errorCount = element.querySelector('.error-count');
+
+    // Reset state
+    if (circle) circle.style.strokeDasharray = "0, 100";
+    if (scoreValue) scoreValue.textContent = "0";
+    if (scoreStatus) scoreStatus.textContent = "ANALYSE...";
+    if (errorCount) errorCount.textContent = "-- erreurs";
+
+    // Sequence
+    setTimeout(() => {
+        // 1. Fill Gauge to 70%
+        if (circle) circle.style.strokeDasharray = "70, 100";
+        if (scoreValue) animateValue(scoreValue, 0, 70, 1500);
+
+        // 2. Update Status
+        setTimeout(() => {
+            if (scoreStatus) {
+                scoreStatus.textContent = "COMPLÉTÉ";
+                scoreStatus.style.color = "var(--primary)";
+            }
+            if (errorCount) errorCount.textContent = "2 erreurs détectées";
+        }, 1500);
+
+        // 3. Highlight Errors
+        const highlights = element.querySelectorAll('.highlight-word');
+        highlights.forEach((word, index) => {
+            setTimeout(() => {
+                word.classList.add('error-revealed');
+                // Auto show tooltip briefly
+                setTimeout(() => word.classList.add('active'), 500);
+                setTimeout(() => word.classList.remove('active'), 2500);
+            }, 1000 + (index * 800));
+        });
+
+    }, 500);
+}
+
+function resetDashboardAnimation(element) {
+    element.classList.remove('active');
+    const circle = element.querySelector('.circle');
+    const highlights = element.querySelectorAll('.highlight-word');
+
+    if (circle) circle.style.strokeDasharray = "0, 100";
+    highlights.forEach(h => {
+        h.classList.remove('error-revealed', 'active');
+    });
+}
+
+function animateValue(obj, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj.innerHTML = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+}

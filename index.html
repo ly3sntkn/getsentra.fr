@@ -134,14 +134,65 @@
                     </ul>
                 </div>
                 <div class="solution-visual">
-                    <div class="feature-demo">
-                        <!-- Abstract visualization of scanning a document -->
-                        <div class="scan-line"></div>
-                        <div class="doc-representation">
-                            <div class="doc-header"></div>
-                            <div class="doc-body">
-                                <span class="error-mark"></span>
-                                <span class="valid-mark"></span>
+                    <!-- Interactive Dashboard Mockup -->
+                    <div class="dashboard-mockup">
+                        <!-- Left Col: Score Card -->
+                        <div class="mockup-column left-col">
+                            <div class="score-card glass-card">
+                                <div class="score-header">
+                                    <span class="score-label">SCORE IA</span>
+                                    <span class="score-ref">RÉF: #7E38A9C5</span>
+                                </div>
+
+                                <div class="score-circle-container">
+                                    <div class="score-circle">
+                                        <svg viewBox="0 0 36 36" class="circular-chart orange">
+                                            <path class="circle-bg" d="M18 2.0845
+                                                a 15.9155 15.9155 0 0 1 0 31.831
+                                                a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                            <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845
+                                                a 15.9155 15.9155 0 0 1 0 31.831
+                                                a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        </svg>
+                                        <div class="score-value">0</div>
+                                    </div>
+                                    <span class="score-status">ANALYSE...</span>
+                                </div>
+
+                                <div class="score-details">
+                                    <div class="detail-row">
+                                        <span class="icon">T</span>
+                                        <div class="detail-text">
+                                            <strong>Orthographe</strong>
+                                            <span class="error-count">-- erreurs</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Col: Document Viewer -->
+                        <div class="mockup-column right-col">
+                            <div class="doc-viewer glass-card">
+                                <div class="doc-toolbar">
+                                    <div class="dots">
+                                        <span></span><span></span><span></span>
+                                    </div>
+                                    <div class="doc-title">contrat_v2_final.pdf</div>
+                                </div>
+                                <div class="doc-content">
+                                    <p>Dans le monde d'aujourd'hui, les applications mobiles prennent une place de plus
+                                        en plus <span class="highlight-word"
+                                            data-tooltip="importante">implortante</span>.</p>
+                                    <p>Cependant, le travail qui se cache derrière leurs fonctionnement est souvent
+                                        sous-estimé. Une application peut paraître simple en <span
+                                            class="highlight-word" data-tooltip="surface">surfarce</span>.</p>
+                                    <p>Quand un developpeur commence un nouveau projet, il doit d'abord définir les
+                                        besoins principaux.</p>
+                                    <p>Ensuite, viens la phase de conception. Durant cette periode, les idees sont mises
+                                        sur papier.</p>
+                                    <div class="scan-beam"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
